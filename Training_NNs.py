@@ -67,16 +67,16 @@ def main():
     steps = 1000
 
     for ii in range(steps):
-        Z, Y = feedforward(X, W1, b1, W2, b2)
+        Z, pY = feedforward(X, W1, b1, W2, b2)
         if ii % 100 == 0:
-            preds = predict(Y)
+            preds = predict(pY)
             classification_rate = np.mean(preds == labels).round(2)
-            cost.append(np.sum(T * np.log(Y)))
+            cost.append(np.sum(T * np.log(pY)))
 
-        W1 += learning_rate * derivative_W1(X, Z, W2, Y, T)
-        b1 += learning_rate * derivative_b1(Z, W2, Y, T)
-        W2 += learning_rate * derivative_W2(Z, Y, T)
-        b2 += learning_rate * derivative_b2(Y, T)
+        W1 += learning_rate * derivative_W1(X, Z, W2, pY, T)
+        b1 += learning_rate * derivative_b1(Z, W2, pY, T)
+        W2 += learning_rate * derivative_W2(Z, pY, T)
+        b2 += learning_rate * derivative_b2(pY, T)
 
     plt.plot(cost)
     plt.title('Cross-entropy loss in gradient descent')

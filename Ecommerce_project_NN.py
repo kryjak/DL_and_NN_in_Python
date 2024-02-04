@@ -37,7 +37,6 @@ classification_rate = []
 learning_rate = 1e-3
 steps = 10000
 
-
 for ii in range(steps):
     Z, pY = feedforward(Xtrain, W1, b1, W2, b2)
     if ii % 100 == 0:
