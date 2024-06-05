@@ -27,8 +27,6 @@ def derivative_b2(Y, T):
     return np.sum(T - Y, axis=0)
 
 def feedforward(X, W1, b1, W2, b2):
-    a = X.dot(W1) + b1
-    # Z = sp.expit(a)
     Z = X.dot(W1) + b1
     Z = Z * (Z > 0)
     alpha = Z.dot(W2) + b2

@@ -28,7 +28,7 @@ def feedforward(X, W1, b1, W2, b2):
     Y = Z.dot(W2) + b2  # no softmax at the end !!!
     return Z, Y
 
-def cross_entropy(T, pY):
+def cross_entropy(T, pY):  # least-squared errors
     return np.mean((T - pY) ** 2)
 
 N = 500

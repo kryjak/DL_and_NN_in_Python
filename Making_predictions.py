@@ -29,13 +29,13 @@ Y = np.array([1, 1, 0])  # targets
 
 W = np.array([[0.5, 0.1, -0.3], [0.7, -0.3, 0.2]])  # choose random weights
 b = np.array([0.4, 0.1, 0])  # bias terms for the first layer
-V = np.array([0.8, 0.1, -0.1])  # weights for hidden layer -> output
+V = np.array([0.8, 0.1, -0.1])  # weights for hidden layer -> output (strictly speaking, this should be a column vector)
 c = 0.2  # scalar bias term for hidden layer -> output
 
 print('-'.center(50, '-'))
 Z = np.tanh(X.dot(W) + b)
 print(f'First layer predictions are: {Z.round(3)}')
-Ypred = np.tanh(Z.dot(V) + c)
+Ypred = np.tanh(Z.dot(V) + c)  # strictly speaking it should be V.T, but numpy understand this 
 print(f'Output layer prediction is: {Ypred.round(3)}')
 
 """
